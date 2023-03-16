@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+<!--<form>-->
+<!--    <div class="content" id="content">-->
+<!--        <div class="form-horizontal edit-user">-->
+<!--            <div class="form-header">Проект распределения обучающихся в параллель 1-х классов</div>-->
+<!--            <div class="form-row">-->
+<!--                <label for="search1" class="form-label">Введите фамилию и имя ребенка</label>-->
+<!--                <input placeholder="Иванов Иван" id="search1" class="form-control" type="text" name="search1">-->
+<!--            </div>-->
+<!--            <div class="form-row">-->
+<!--                <label for="search2" class="form-label">Введите дату рождения </label>-->
+<!--                <input placeholder="XX.XX.XXXX" id="search2" class="form-control" type="text" name="search2">-->
+<!--            </div>-->
+<!--            <div class="form-row buttons">-->
+<!--                <input type="submit" value="Показать результат"/>-->
+<!--            </div>-->
+<!--            <div th:each="student1 : ${student1}" style="margin-left:20px;">-->
+<!--                <H6>Результат поиска:</H6>-->
+<!--                <a th:text="${'ФИО ученика: ' + student1.getStudentFullName() + ', класс: ' + student1.getStudentClass()}">student</a>-->
+<!--            </div>-->
+
+<!--            <div>-->
+<!--                <a href="http://localhost:8080/home">Домашняя страница</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</form>-->
+
+
+<form>
+    <div class="content" id="content">
+        <div class="form-horizontal edit-user">
+            <div class="form-header">Поиск по ФИО</div>
+            <div class="form-row">
+                <label for="search1" class="form-label">Введите Фамилию и имя</label>
+                <input id="search1" class="form-control" type="text" name="search1">
+            </div>
+            <div class="form-row buttons">
+                <input type="submit" value="Поиск!"/>
+            </div>
+            <div th:each="student : ${student}" style="margin-left:20px;">
+                <H6>Результат поиска:</H6>
+                <a th:href="@{/student/{studentId}(studentId=${student.getStudentId()})}" th:text="${'Имя и фамилия: ' + student.getStudentFullName() + ', класс: ' + student.getStudentClass()}">user</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

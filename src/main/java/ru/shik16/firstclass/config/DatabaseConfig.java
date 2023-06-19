@@ -12,12 +12,14 @@ public class DatabaseConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/shik16");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("12345678");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/student_db");
+        dataSource.setUsername("admin");
+        dataSource.setPassword("1606");
         return dataSource;
     }
 }
+
+
 
 //root@xxdemonxx21:~/firstclass# sudo chown root /etc/profile.d/maven.sh
 //root@xxdemonxx21:~/firstclass# sudo bash -c 'cat << EOF > /etc/profile.d/maven.sh

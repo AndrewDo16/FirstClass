@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Contacts">
+    <meta name="description" content="">
+    <title>Главная</title>
+    <link rel="stylesheet" href="../static/nicepage.css" th:href="@{/nicepage.css}" media="screen">
+<link rel="stylesheet" href="../static/main.css" th:href="@{/main.css}" media="screen">
+<link rel="stylesheet" href="../static/main.css" th:href="@{/birthday.css}" media="screen">
+    <style>
+        #search2{width: 560px; height: 48px;border: none;
+        outline:none;border-bottom: 2px solid rgb(118, 118, 118); color: #b3b3b3;
+        padding-left: 10px;}
+        #search2:focus {
+            color: black;
+        }
+    </style>
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 5.6.2, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/photo_2023-03-01_15-39-39-PhotoRoom.png-PhotoRoom.png"}
+    </script>
+    <meta name="theme-color" content="#f05510">
+    <meta property="og:title" content="Главная">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-header u-header" id="sec-2b6b"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <a href="https://schisv16.mskobr.ru/" class="u-image u-logo u-image-1" data-image-width="640" data-image-height="640">
+          <img th:src="@{images/photo_2023-03-01_15-39-39-PhotoRoom.png-PhotoRoom.png}" alt="" class="u-logo-image u-logo-image-1"/>
+        </a>
+      </div></header> 
+    <section class="u-clearfix u-palette-4-dark-1 u-section-1" id="sec-ba87">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-align-center u-container-style u-layout-cell u-size-60 u-white u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <div class="u-form u-form-1">
+                    <form style="padding: 28px;">
+                      <p class="u-align-center u-form-group u-form-text u-text u-text-1"> Проект распределения обучающихся<br>в параллель 1-х классов
+                      </p>
+                      </br>
+                      <div class="u-form-group u-form-name">
+                        <label for="search1" class="u-label" data-lang-en="Name">Введите фамилию и имя ребенка</label>
+                        <input id="search1" type="text" placeholder="Иванов Иван" name="search1" class="u-border-2 u-border-grey-50 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-none" required="" data-lang-en="Enter your Name">
+                      </div>
+                      </br>
+                      <div class="u-form-date u-form-group">
+                        <label for="search2" class="u-label" data-lang-en="Birthday">Введите дату рождения</label>
+                        <input id="search2" type="text" data-format="**.**.****" data-mask="MM.DD.YYYY" name="search2" class="birthdayForm" >
+                      </div>
+                      </br>
+                      <div class="u-align-right u-form-group u-form-submit">
+                        <a class="u-active-black u-border-active-palette-4-light-1 u-border-hover-palette-4-light-1 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-palette-4-base u-radius-50 u-btn-1" data-lang-en="{&quot;content&quot;:&quot;Submit your request&quot;,&quot;href&quot;:&quot;#&quot;}">Показать результат</a>
+                        <input type="submit" value="submit" class="u-form-control-hidden">
+                      </div>
+                      <div th:each="student : ${student}" style="margin-left:20px;">
+                        <H6>Результат поиска:</H6>
+                        <h6 th:text="${'Ученик(-ца): ' + student.getFullName() + ', зачислен(а) в ' + student.getClassName() + ' класс'}">user</h6>
+                      </div>
+<!--                        <div th:each="student : ${student}" style="margin-left:20px;">-->
+<!--                            <div    th:with="type=${student.getFullName()}"-->
+<!--                                    th:switch="${type}">-->
+<!--                                <p th:case="type">-->
+<!--                                <H6>Результат поиска:</H6>-->
+<!--                                <h6 th:text="${'Ученик(-ца): ' + student.getFullName() + ', зачислен(а) в ' + student.getClassName() + ' класс'}">user</h6>-->
+<!--                                </p>-->
+<!--                                <p th:case="student">-->
+<!--                                <div class="u-form-send-error u-form-send-message" data-lang-en="-->
+<!--            Unable to send your message. Please fix errors then try again.-->
+<!--        ">Unable to send your message. Please fix errors then try again.</div>-->
+<!--                                </p>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+
+                      <input type="hidden" value="" name="recaptchaResponse">
+                      <input type="hidden" name="formServices" value="1b257fd6b8bfdf91b892847f0faca257">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <section class="u-align-center u-clearfix u-palette-4-dark-1 u-section-2" id="sec-7866">
+      <div class="u-clearfix u-sheet u-sheet-1">
+          <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+              <div class="u-layout">
+                  <div class="u-layout-row">
+                      <div class="u-align-left u-container-style u-layout-cell u-size-24-md u-size-24-sm u-size-24-xs u-size-30-lg u-size-30-xl u-white u-layout-cell-1">
+                          <div class="u-container-layout u-valign-top u-container-layout-1">
+                              <h4 class="u-text u-text-default u-text-3" data-lang-en="Contacts"> Наши контакты</h4>
+                              <p class="u-text u-text-2" data-lang-en="​​Use our contact form for all information requests or contact us directly using the contact information below.
+<br>
+<br>Feel free to get in touch with us via email or phone">
+                                  <span style="font-size: 1rem;"></span>
+                                  <span style="font-size: 1rem;">Директор: Борматова Жанна Георгиевна<br>Тел.:&nbsp;<a href="tel:+74956826234" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">+7 (495) 682-62-34</a>
+                      <br>E-mail:&nbsp;<a href="mailto:BormatovaZG@edu.mos.ru" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">BormatovaZG@edu.mos.ru</a>
+                      <br>Секретарь<br>Тел.:&nbsp;<a href="tel:+74956826234" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">+7 (495) 682-62-34</a>
+                      <br>E-mail:&nbsp;<a href="mailto:16@edu.mos.ru" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4">16@edu.mos.ru</a>
+                    </span>
+                              </p>
+                          </div>
+                      </div>
+                      <div class="u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-36-md u-size-36-sm u-size-36-xs u-white u-layout-cell-2">
+                          <div class="u-container-layout u-container-layout-2">
+                              <h4 class="u-text u-text-default u-text-3" data-lang-en="​Sign up for the newsletter">Наши социальные сети&nbsp;</h4>
+                              <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-4" data-lang-en="​Want to be the first to read our news? Subscribe to the newsletter to keep abreast of all events.">
+                                  <a href="https://schisv16.mskobr.ru/" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-5">Официальный сайт</a>
+                              </p>
+                              <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-5" data-lang-en="​Want to be the first to read our news? Subscribe to the newsletter to keep abreast of all events.">
+                                  <a href="https://www.youtube.com/channel/UCrX7_kF6rxAJFqD7WQjsL6Q?view_as=subscriber" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-6">YouTube</a>
+                              </p>
+                              <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-6" data-lang-en="​Want to be the first to read our news? Subscribe to the newsletter to keep abreast of all events.">
+                                  <a href="https://t.me/schoolshik16" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7">Telegram</a>
+                              </p>
+                              <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-7" data-lang-en="​Want to be the first to read our news? Subscribe to the newsletter to keep abreast of all events.">
+                                  <a href="https://vk.com/shikshik16" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8">Вконтакте</a>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="u-expanded-width u-list u-list-1">
+              <div class="u-repeater u-repeater-1">
+                  <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-container-layout-3">
+                          <h6 class="u-custom-font u-font-montserrat u-text u-text-8" data-lang-en="​Our Office Location"> Юридический адрес:</h6>
+                          <p class="u-text u-text-9" data-lang-en="​The Interior Design Studio Company<br>The Courtyard, ​Al Quoz 1,​	Colorado, ​	USA"> 129223, г. Москва, Проспект Мира, д.123</p>
+                      </div>
+                  </div>
+                  <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-container-layout-4">
+                          <h6 class="u-custom-font u-font-montserrat u-text u-text-10" data-lang-en="​Phone (Landline)">Станиция метро:</h6>
+                          <p class="u-text u-text-11" data-lang-en="+ 912 3 567 8987<br>+ 912 5 252 3336">ВДНХ</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-a2a9"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">ГАОУ Школа "ШИК16"<br>г. Москва<br>2023
+        </p>
+      </div></footer>
+  
+</body></html>

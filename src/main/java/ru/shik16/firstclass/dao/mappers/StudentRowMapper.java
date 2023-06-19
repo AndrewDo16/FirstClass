@@ -1,8 +1,8 @@
-package ru.shik16.firstClass.service.rowMapper;
+package ru.shik16.firstclass.dao.mappers;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
-import ru.shik16.firstClass.entity.Student;
+import ru.shik16.firstclass.models.Student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ public class StudentRowMapper implements RowMapper<Student> {
                 rs.getInt("id"),
                 rs.getString("full_name"),
                 rs.getDate("birthday"),
-                rs.getString("class")
+                rs.getString("class_name")
         );
     }
 }

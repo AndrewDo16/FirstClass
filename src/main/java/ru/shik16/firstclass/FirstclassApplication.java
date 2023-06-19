@@ -1,17 +1,16 @@
-package ru.shik16.firstClass;
+package ru.shik16.firstclass;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan("ru")
-public class FirstClassApplication {
+public class FirstclassApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstClassApplication.class, args);
+		SpringApplication.run(FirstclassApplication.class, args);
 	}
 
 }

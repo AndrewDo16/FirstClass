@@ -8,6 +8,7 @@ import ru.shik16.firstclass.services.StudentService;
 
 
 @Controller
+@RequestMapping("/")
 public class StudentController {
 
     private final StudentService studentService;
@@ -17,16 +18,6 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-
-
-//    @GetMapping("/")
-//    public String showSearch(Model model, @RequestParam(value = "search1", required = false) String search1,
-//                             @RequestParam(value = "search2", required = false) String search2) {
-//        if (search1 != null) {
-//            model.addAttribute("student", studentDAO.search(search1, search2));
-//        }
-//        return "main";
-//    }
 
     @GetMapping("/")
     public String showSearch(Model model, @RequestParam(value = "search1", required = false) String search1,

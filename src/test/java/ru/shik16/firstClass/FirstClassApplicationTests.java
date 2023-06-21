@@ -7,8 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class FirstClassApplicationTests {
 
 	@Test
-	void contextLoads() {
-
+	String contextLoads() {
+		return "fine";
 	}
 
 }

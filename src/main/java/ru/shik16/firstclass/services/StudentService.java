@@ -25,6 +25,6 @@ public class StudentService {
     }
 
     public List<Student> findByNameAndBirthday(String fullName, String birthday){
-        return studentRepository.findByFullNameAndBirthday(fullName,birthday);
+        return studentRepository.findByFullNameIgnoreCaseAndBirthday(fullName,birthday);
     }
 }

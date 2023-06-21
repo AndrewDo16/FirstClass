@@ -7,7 +7,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "Student")
+@Table(name = "student")
 @Getter
 @Setter
 public class Student {
@@ -26,15 +26,18 @@ public class Student {
     @Column(name = "st_class", nullable = false)
     private String className;
 
+    @Column(name = "th_id", nullable = false)
+    private String teacherId;
+
 
     public Student() {
     }
 
-    public Student(int id, String fullName, String birthday, String className) {
+    public Student(int id, String fullName, String birthday, String className, String teacherId) {
         this.id = id;
         this.fullName = fullName;
         this.birthday = birthday;
         this.className = className;
+        this.teacherId = teacherId;
     }
-
 }

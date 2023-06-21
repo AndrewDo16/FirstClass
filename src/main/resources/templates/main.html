@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="ru" xmlns:th="http://www.thymeleaf.org"><head>
+<html style="font-size: 16px;" lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Contacts">
@@ -36,7 +36,7 @@
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-header u-header" id="sec-2b6b"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a href="https://schisv16.mskobr.ru/" class="u-image u-logo u-image-1" data-image-width="640" data-image-height="640">
+        <a href="/" class="u-image u-logo u-image-1" data-image-width="640" data-image-height="640">
           <img th:src="@{images/photo_2023-03-01_15-39-39-PhotoRoom.png-PhotoRoom.png}" alt="" class="u-logo-image u-logo-image-1"/>
         </a>
       </div></header> 
@@ -68,24 +68,11 @@
                       </div>
                       <div th:each="student : ${student}" style="margin-left:20px;">
                         <H6>Результат поиска:</H6>
-                        <h6 th:text="${'Ученик(-ца): ' + student.getFullName() + ', зачислен(а) в ' + student.getClassName() + ' класс'}">user</h6>
+                        <h6 th:text="${'Ученик(-ца): ' + student.getFullName() + ', зачислен(а) в 1 класс &quot;'
+                        + student.getClassName() +'&quot; с дополнительной образовательной программой &quot;'
+                        + education.getProgramName() + '&quot;.'}">user</h6>
+                          <h6 th:text="${'Классный руководитель ' + teacher.getTeacherName() }">user</h6>
                       </div>
-<!--                        <div th:each="student : ${student}" style="margin-left:20px;">-->
-<!--                            <div    th:with="type=${student.getFullName()}"-->
-<!--                                    th:switch="${type}">-->
-<!--                                <p th:case="type">-->
-<!--                                <H6>Результат поиска:</H6>-->
-<!--                                <h6 th:text="${'Ученик(-ца): ' + student.getFullName() + ', зачислен(а) в ' + student.getClassName() + ' класс'}">user</h6>-->
-<!--                                </p>-->
-<!--                                <p th:case="student">-->
-<!--                                <div class="u-form-send-error u-form-send-message" data-lang-en="-->
-<!--            Unable to send your message. Please fix errors then try again.-->
-<!--        ">Unable to send your message. Please fix errors then try again.</div>-->
-<!--                                </p>-->
-<!--                            </div>-->
-
-<!--                        </div>-->
-
 
                       <input type="hidden" value="" name="recaptchaResponse">
                       <input type="hidden" name="formServices" value="1b257fd6b8bfdf91b892847f0faca257">

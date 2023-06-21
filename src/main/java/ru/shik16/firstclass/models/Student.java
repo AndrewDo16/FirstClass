@@ -27,13 +27,13 @@ public class Student {
     private String className;
 
     @Column(name = "th_id", nullable = false)
-    private String teacherId;
+    private int teacherId;
 
 
     public Student() {
     }
 
-    public Student(int id, String fullName, String birthday, String className, String teacherId) {
+    public Student(int id, String fullName, String birthday, String className, int teacherId) {
         this.id = id;
         this.fullName = fullName;
         this.birthday = birthday;

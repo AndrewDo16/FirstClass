@@ -8,6 +8,7 @@ import ru.shik16.firstclass.models.Teacher;
 import ru.shik16.firstclass.repository.TeacherRepository;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional(readOnly = true)
@@ -22,17 +23,8 @@ public class TeacherService {
         this.studentService = studentService;
     }
 
-    public Teacher findById(int id) {
-        return teacherRepository.findTeacherById(id);
-    }
 
-    public Teacher findTeacher(String fullName, String birthday) {
-        String teacherId = "";
-        List <Student> studentList = studentService.findByNameAndBirthday(fullName, birthday);
-
-        for (int i = 0; i < studentList.size(); i++) {
-            teacherId = studentList.get(i).getTeacherId();
-        }
-        return findById(Integer.parseInt(teacherId));
+    public Teacher findByTeacherId(int teacherId) {
+        return teacherRepository.findById(teacherId).orElseThrow(IllegalArgumentException::new);
     }
 }

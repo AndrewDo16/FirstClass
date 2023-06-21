@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer> {
-    List<Student> findByFullNameIgnoreCaseAndBirthday(String fullName, String birthday);
+    Student findByFullNameIgnoreCaseAndBirthday(String fullName, String birthday);
 }

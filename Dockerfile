@@ -1,7 +1,10 @@
-FROM maven:3.9.2-ibm-semeru-17-focal
+FROM maven:3.8.4-openjdk-17 as builder
+WORKDIR /app
+COPY . /app/.
+RUN mvn -f /app/pom.xml clean package -Dmaven.test.skip=true
 
-COPY ./ ./
-
-RUN mvn clean package
-
-CMD ["java", "-jar", "target/firstClass-0.0.1-SNAPSHOT.jar"]
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY --from=builder /app/target/*.jar /app/*.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/*.jar"]
